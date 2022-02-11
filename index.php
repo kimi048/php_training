@@ -1,6 +1,17 @@
 <?php
-$goofie="goofie"
+
+if(
+  isset($_GET['name']) && isset($_GET['lastname']) && isset($_GET['age'])
+  ){
+    if(!empty($_GET['name']) && !empty($_GET['lastname']) && !empty($_GET['age'])){
+      $name=$_GET['name'];
+      $lastname=$_GET['lastname'];
+      $age=$_GET['age'];
+      echo "The following data will go to DB: ".$name." ".$lastname." age=".$age;
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,25 +21,31 @@ $goofie="goofie"
   <title>Document</title>
 </head>
 <body>
+  <form>
+    <div>
+      <label>Name:</label><br/>
+      <input type="text" name="name">
+      <br/>
+    </div>
+    <div>
+      <label>Lastname:</label><br/>
+      <input type="text" name="lastname">
+      <br/>
+    </div>
+    <div>
+      <label>Age:</label><br/>
+      <input type="number" name="age">
+      <br/>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
   
-
-
-
 <?php
 
-// echo "kimikimi";
-$cars = array("Nissan", "Toyota", "VW");
-$colors = array("red", "green", "blue", "yellow");
-foreach($cars as $key =>$value ){
-  print($key." : ".$value."<br>");
-}
-echo count($cars)."<br>";
-echo "Hello ".$goofie;
+echo "<pre>",print_r($GLOBALS),"</pre>"
+
 ?>
 </body>
-<script>
-const newUser='<?php echo $goofie?>';
-console.log(newUser);
-</script>
+
 </html>
 
