@@ -1,13 +1,13 @@
 <?php
 
 if(
-  isset($_GET['name']) && isset($_GET['lastname']) && isset($_GET['age'])
+  isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['password'])
   ){
-    if(!empty($_GET['name']) && !empty($_GET['lastname']) && !empty($_GET['age'])){
-      $name=$_GET['name'];
-      $lastname=$_GET['lastname'];
-      $age=$_GET['age'];
-      echo "The following data will go to DB: ".$name." ".$lastname." age=".$age;
+    if(!empty($_POST['name']) && !empty($_POST['lastname']) && !empty($_POST['password'])){
+      $name=$_POST['name'];
+      $lastname=$_POST['lastname'];
+      $password=$_POST['password'];
+      echo "The following data will go to DB: ".$name." ".$lastname." password=".$password;
     }
 }
 ?>
@@ -21,7 +21,7 @@ if(
   <title>Document</title>
 </head>
 <body>
-  <form>
+  <form method="POST" action="global.php">
     <div>
       <label>Name:</label><br/>
       <input type="text" name="name">
@@ -33,8 +33,8 @@ if(
       <br/>
     </div>
     <div>
-      <label>Age:</label><br/>
-      <input type="number" name="age">
+      <label>Password:</label><br/>
+      <input type="text" name="password">
       <br/>
     </div>
     <button type="submit">Submit</button>
