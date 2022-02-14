@@ -1,13 +1,16 @@
 <?php
+date_default_timezone_set('Asia/Tokyo');
 
-if(
-  isset($_POST['name']) && isset($_POST['lastname']) && isset($_POST['password'])
-  ){
-    if(!empty($_POST['name']) && !empty($_POST['lastname']) && !empty($_POST['password'])){
-      $name=$_POST['name'];
-      $lastname=$_POST['lastname'];
-      $password=$_POST['password'];
-      echo "The following data will go to DB: ".$name." ".$lastname." password=".$password;
-    }
+
+$expiration = time() +  (86400*30);
+setcookie("KIMI","the value of the cookie",$expiration,"/basics");
+
+
+
+
+if(isset($_COOKIE["KIMI"])){
+  echo $_COOKIE["KIMI"]."<br/>";
 }
+// echo time();
+echo "<pre>",print_r($GLOBALS),"</pre>";
 ?>
